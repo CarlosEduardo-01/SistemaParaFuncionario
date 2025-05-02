@@ -7,9 +7,9 @@
 <img src="https://img.shields.io/badge/License-MIT-green" alt="License">
 
 
-Um sistema completo para gerenciamento de funcionários desenvolvido em C# 7.3, demonstrando conceitos avançados de Programação Orientada a Objetos.
+## Um sistema completo para gerenciamento de funcionários desenvolvido em C# 7.3, demonstrando conceitos avançados de Programação Orientada a Objetos.
 
-📌 Funcionalidades
+### 📌 Funcionalidades
 ✅ Cadastro de diferentes tipos de funcionários (Gerente, Desenvolvedor, Estagiário)
 
 ✅ Cálculo automático de salários e impostos
@@ -20,76 +20,78 @@ Um sistema completo para gerenciamento de funcionários desenvolvido em C# 7.3, 
 
 ✅ Menu interativo fácil de usar
 
-🏗️ Estrutura do Projeto
-SistemaFuncionario/
-├── Models/
-│   ├── Funcionario.cs       # Classe base abstrata
-│   ├── Gerente.cs           # Implementação para gerentes
-│   ├── Desenvolvedor.cs     # Implementação para desenvolvedores
-│   └── Estagiario.cs        # Implementação para estagiários
-├── Enums/
-│   ├── FormaPagamento.cs    # Enum: Pix, Débito em Conta, Dinheiro
-│   └── MetodoEntrega.cs     # Enum: Automático, Manual
-└── Program.cs               # Lógica principal e menu
-💻 Como Usar
-Clone o repositório:
 
-bash
-git clone https://github.com/seu-usuario/SistemaFuncionario.git
-Abra o projeto no Visual Studio 2022
+## 📌 Funcionalidades
+
+✔ **Cadastro de funcionários**  
+&nbsp;&nbsp; ↳ Gerentes, Desenvolvedores, Estagiários  
+
+✔ **Cálculos automáticos**  
+&nbsp;&nbsp; ↳ Impostos, salários líquidos  
+
+<br>
+
+## 🚀 Começando
+
+1. Clone o repositório:  
+   ```bash
+   git clone https://github.com/CarlosEduardo-01/SistemaParaFuncionario.git
+   ```
+
+2. Execute o projeto:  
+   ```bash
+   cd SistemaFuncionario  
+   dotnet run
+   ```
 
 Compile e execute (F5)
 
-🧮 Regras de Cálculo
-Cargo	Fórmula do Salário	Imposto
-Gerente	Salário Base + Bônus - 27.5%	27.5%
-Desenvolvedor	Salário Base + (Horas × Valor) - 10%	10%
-Estagiário	Salário Base	Isento
-🛠️ Tecnologias Utilizadas
-C# 7.3
+## 📊 Regras de Cálculo
+| Cargo         | Fórmula                          | 
+|---------------|----------------------------------|
+| `Gerente`     | Salário + Bônus - 27.5%          |
 
-.NET Framework 4.8
+## 💡 Exemplo de Código
+```csharp
+var gerente = new Gerente("João", 35, 10000m, FormaPagamento.Pix,
+MetodoEntrega.Automatico, 2000m);
+```
 
-Visual Studio 2022
+## 🛠️ Tecnologias Utilizadas
 
-📝 Licença
-Este projeto está licenciado sob a licença MIT - veja o arquivo LICENSE para detalhes.
+1. C# 7.3
 
-✨ Recursos Avançados
-Polimorfismo: Métodos virtuais e sobrescritos
+2. .NET Framework 4.8
 
-Encapsulamento: Propriedades com níveis de acesso controlados
+3. Visual Studio 2022
 
-Tratamento de erros: Validações robustas em todas as entradas
+## ✨ Recursos Avançados
 
-Padrões de projeto: Implementação de Repository Pattern (implícito)
+1. Polimorfismo: &nbsp; Métodos virtuais e sobrescritos
 
-🚀 Melhorias Futuras
-Adicionar persistência em banco de dados
+2. Encapsulamento: &nbsp; Propriedades com níveis de acesso controlados
 
-Implementar interface gráfica
+3. Tratamento de erros: &nbsp; Validações robustas em todas as entradas
 
-Adicionar relatórios em PDF
+4. Padrões de projeto: &nbsp; Implementação de Repository Pattern (implícito)
+   
+## 🚀 Melhorias Futuras
 
-🤝 Como Contribuir
-Faça um fork do projeto
+1. Adicionar persistência em banco de dados
 
-Crie uma branch para sua feature (git checkout -b feature/AmazingFeature)
+2. Implementar interface gráfica
 
-Commit suas mudanças (git commit -m 'Add some AmazingFeature')
+3. Adicionar relatórios em PDF
 
-Push para a branch (git push origin feature/AmazingFeature)
 
-Abra um Pull Request
-
-📊 Exemplo de Saída
+## 📊 Exemplo de Saída
 FUNCIONÁRIO #1
-------------------------------------
-Nome: João Silva
-Cargo: Gerente
-Salário Base: R$ 10.000,00
-Bônus: R$ 2.000,00
-Salário Total: R$ 12.000,00
-Impostos (27.5%): R$ 3.300,00
-Salário Líquido: R$ 8.700,00
-------------------------------------
+
+Nome: João Silva <br>
+Cargo: Gerente <br>
+Salário Base: R$ 10.000,00 <br>
+Bônus: R$ 2.000,00 <br>
+Salário Total: R$ 12.000,00 <br>
+Impostos (27.5%): R$ 3.300,00 <br>
+Salário Líquido: R$ 8.700,00 <br>
+
