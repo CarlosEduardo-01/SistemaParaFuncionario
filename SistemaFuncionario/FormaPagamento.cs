@@ -3,7 +3,7 @@
     public enum FormaPagamento
     {
         Pix,
-        DebitoemConta,
+        DebitoEmConta,
         Dinheiro
     }
 }

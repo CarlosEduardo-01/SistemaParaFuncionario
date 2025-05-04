@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace SistemaFuncionario
 {
@@ -150,7 +151,7 @@ namespace SistemaFuncionario
 
             Console.WriteLine("\nATUALIZAR FUNCIONÁRIO");
             Console.WriteLine(LinhaDivisoria);
-            Console.WriteLine("NOTA: Nome e idade não podem ser alterados após o cadastro.");
+            Console.WriteLine("NOTA: Nome não pode ser alterado após o cadastro.");
 
             Console.WriteLine("\nFuncionários cadastrados:");
             for (int i = 0; i < funcionarios.Count; i++)
@@ -164,30 +165,41 @@ namespace SistemaFuncionario
                 var funcionario = funcionarios[indice - 1];
                 Console.WriteLine($"\nEditando {funcionario.Nome} ({funcionario.Cargo}):");
                 Console.WriteLine($"- Nome: {funcionario.Nome} (não pode ser alterado)");
-                Console.WriteLine($"- Idade: {funcionario.Idade} (não pode ser alterada)");
 
                 try
                 {
-                    Console.Write($"Salário Base (R$ {funcionario.SalarioBase:F2}): ");
+                    Console.Write($"- Mudar idade ({funcionario.Idade}): ");
+                    string idadeInput = Console.ReadLine();
+                    if (!string.IsNullOrWhiteSpace(idadeInput))
+                    {
+                        int novaIdade = int.Parse(idadeInput);
+                        if (novaIdade < funcionario.Idade)
+                        {
+                            Console.WriteLine("\nErro: Não é permitido reduzir a idade do funcionário!");
+                        }                   
+                    }
+
+
+                    Console.Write($"- Salário Base (R$ {funcionario.SalarioBase:F2}): ");
                     string salarioInput = Console.ReadLine();
                     if (!string.IsNullOrWhiteSpace(salarioInput))
                         funcionario.SalarioBase = decimal.Parse(salarioInput);
 
                     if (funcionario is Gerente gerente)
                     {
-                        Console.Write($"Bônus (R$ {gerente.Bonus:F2}): ");
+                        Console.Write($"- Bônus (R$ {gerente.Bonus:F2}): ");
                         string bonusInput = Console.ReadLine();
                         if (!string.IsNullOrWhiteSpace(bonusInput))
                             gerente.Bonus = decimal.Parse(bonusInput);
                     }
                     else if (funcionario is Desenvolvedor desenvolvedor)
                     {
-                        Console.Write($"Horas Extras ({desenvolvedor.HorasExtras}): ");
+                        Console.Write($"- Horas Extras ({desenvolvedor.HorasExtras}): ");
                         string horasInput = Console.ReadLine();
                         if (!string.IsNullOrWhiteSpace(horasInput))
                             desenvolvedor.HorasExtras = int.Parse(horasInput);
 
-                        Console.Write($"Valor por Hora Extra (R$ {desenvolvedor.ValorHoraExtra:F2}): ");
+                        Console.Write($"- Valor por Hora Extra (R$ {desenvolvedor.ValorHoraExtra:F2}): ");
                         string valorInput = Console.ReadLine();
                         if (!string.IsNullOrWhiteSpace(valorInput))
                             desenvolvedor.ValorHoraExtra = decimal.Parse(valorInput);
